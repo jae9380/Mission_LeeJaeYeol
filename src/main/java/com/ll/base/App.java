@@ -19,7 +19,7 @@ public class App {
             String inputdata = sc.nextLine();
             DistinguishOfStr ds= new DistinguishOfStr(inputdata);
 
-            switch (ds.mainAction){
+            switch (ds.getAction()){
                 case "등록": controller.actionWrite();
                     break;
                 case "목록": controller.actionList();
