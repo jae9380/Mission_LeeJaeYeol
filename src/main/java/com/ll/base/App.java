@@ -12,6 +12,7 @@ public class App {
     }
     public  void  run(){
         Controller controller=new Controller(sc);
+        controller.actionLoad();
         System.out.println("===== 명 언 앱 ====");
         while (true){
             System.out.print("명령어 ) ");
@@ -27,8 +28,10 @@ public class App {
                     break;
                 case "수정": controller.actionModify(ds);
                     break;
-                case  "종료":
+                case  "종료": controller.actionSave();
                     return;
+                default:
+                    break;
             }
         }
     }
