@@ -60,4 +60,18 @@ public class Controller {
         System.out.printf("%d번의 명언을 삭제 했습니다.\n",ds.idNum());
     }
 
+    public void actionModify(DistinguishOfStr ds){
+        int modtifyId= searchMap((ds.idNum()));
+        if (modtifyId==-1){
+            System.out.printf("해당 %d 번의 명언은 존재하지 않습니다.",ds.idNum());
+            return;
+        }
+        System.out.println("명언(기존) : "+map.get(ds.idNum()).saying);
+        System.out.print("명언 : ");
+        map.get(ds.idNum()).saying=sc.nextLine();
+        System.out.println("작가(기존) : "+map.get(ds.idNum()).author);
+        System.out.print("작가 : ");
+        map.get(ds.idNum()).author=sc.nextLine();
+    }
+
 }

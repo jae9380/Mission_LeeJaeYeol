@@ -25,6 +25,8 @@ public class App {
                     break;
                 case "삭제": controller.actionRemove(ds);
                     break;
+                case "수정": controller.actionModify(ds);
+                    break;
                 case  "종료":
                     return;
             }
