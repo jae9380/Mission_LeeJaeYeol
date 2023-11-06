@@ -28,6 +28,8 @@ public class App {
                     break;
                 case "수정": controller.actionModify(ds);
                     break;
+                case "빌드": controller.actionBuild();
+                    break;
                 case  "종료": controller.actionSave();
                     return;
                 default:

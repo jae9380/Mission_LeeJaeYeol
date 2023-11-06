@@ -1,6 +1,8 @@
 package com.ll.quotation;
 
 import com.ll.base.DistinguishOfStr;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 
 import java.io.*;
 import java.util.HashMap;
@@ -114,6 +116,37 @@ public class Controller {
         } catch (IOException e) {
             System.out.println("저장된 데이터가 없습니다.");
         }
+    }
+
+    public void actionBuild(){
+        JSONArray jsonArray= new JSONArray();
+
+        for (Integer key : map.keySet()) {
+            JSONObject jsonObject=new JSONObject();
+            jsonObject.put("id",key);
+            jsonObject.put("content",map.get(key).saying);
+            jsonObject.put("author",map.get(key).author);
+            jsonArray.add(jsonObject);
+        }
+        String jsonData= jsonArray.toJSONString();
+        Writer jsonWriter;
+        try {
+            jsonWriter=new FileWriter("data.json");
+//            jsonWriter.write(jsonData);
+            // data.jon 파일 보기 쉽게 만들기 위한 수정
+            for (int i = 0; i <jsonArray.size() ; i++) {
+                JSONObject jsonObject =(JSONObject) jsonArray.get(i);
+                jsonWriter.write(jsonObject.toJSONString());
+                if (i<jsonArray.size()-1){
+                    jsonWriter.write("\n");
+                }
+            }
+            jsonWriter.flush();
+            jsonWriter.close();
+        }catch (IOException e){
+
+        }
+        System.out.println("data.json 파일의 내용을 갱신되었습니다.");
     }
 
 }
