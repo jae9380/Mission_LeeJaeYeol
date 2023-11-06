@@ -13,7 +13,7 @@ public class Controller {
         String saying =sc.nextLine();
         System.out.print("작가 : ");
         String author=sc.nextLine();
-
+        System.out.println("1번 명언이 등록 되었습니다.");
     }
 
 }
