@@ -1,6 +1,7 @@
-package com.ll.smipleDb;
+package com.ll.simpleDb;
 import lombok.Data;
 import java.time.LocalDateTime;
+
 
 @Data
 public class Article {

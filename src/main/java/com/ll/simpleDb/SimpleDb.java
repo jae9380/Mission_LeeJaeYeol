@@ -1,4 +1,4 @@
-package com.ll.smipleDb;
+package com.ll.simpleDb;
 
 public class SimpleDb {
     public void beforAll(){
