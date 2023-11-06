@@ -19,6 +19,8 @@ public class App {
             switch (inputdata){
                 case "등록": controller.actionWrite();
                     break;
+                case "목록": controller.actionList();
+                    break;
                 case  "종료":
                     return;
             }
