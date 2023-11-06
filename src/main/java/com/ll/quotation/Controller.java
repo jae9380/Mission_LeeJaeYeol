@@ -1,5 +1,7 @@
 package com.ll.quotation;
 
+import com.ll.base.DistinguishOfStr;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
@@ -42,6 +44,20 @@ public class Controller {
                 }
             }
         }
+    }
+    private int searchMap(int key){
+        int result= map.containsKey(key)?key:-1;
+        return result;
+    }
+
+    public void actionRemove(DistinguishOfStr ds){
+        int removeId= searchMap(ds.idNum());
+        if (removeId==-1){
+            System.out.printf("해당 %d 번의 명언은 존재하지 않습니다.\n",ds.idNum());
+            return;
+        }
+        map.remove(ds.idNum());
+        System.out.printf("%d번의 명언을 삭제 했습니다.\n",ds.idNum());
     }
 
 }

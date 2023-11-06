@@ -16,10 +16,14 @@ public class App {
         while (true){
             System.out.print("명령어 ) ");
             String inputdata = sc.nextLine();
-            switch (inputdata){
+            DistinguishOfStr ds= new DistinguishOfStr(inputdata);
+
+            switch (ds.mainAction){
                 case "등록": controller.actionWrite();
                     break;
                 case "목록": controller.actionList();
+                    break;
+                case "삭제": controller.actionRemove(ds);
                     break;
                 case  "종료":
                     return;
