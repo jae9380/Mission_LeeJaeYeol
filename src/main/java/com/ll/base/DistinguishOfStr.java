@@ -2,14 +2,15 @@ package com.ll.base;
 
 public class DistinguishOfStr {
     String mainAction,remain;
+    String[]halfstr;
     public DistinguishOfStr(String inputData){
-        if (inputData.length()==2){
+        if (!inputData.contains("?")){
             mainAction=inputData;
             return;
         }
         // 명령어를 잘못 입력 시 예외처리
         try {
-            String[]halfstr=inputData.split("\\?",2);
+            halfstr=inputData.split("\\?",2);
             mainAction= halfstr[0].trim();
             remain=halfstr[1].trim();
 
@@ -20,9 +21,14 @@ public class DistinguishOfStr {
 
     }
     public String getAction(){return mainAction;}
-    public int idNum(){
-        String intRemain= remain.replaceAll("[^\\d]","");
-        int result = Integer.parseInt(intRemain);
-        return result;
+    public int idNum() {
+
+        try {
+            String intRemain = remain.replaceAll("[^\\d]", "");
+            int result = Integer.parseInt(intRemain);
+            return result;
+        } catch (NullPointerException e) {
+            return 0;
+        }
     }
 }

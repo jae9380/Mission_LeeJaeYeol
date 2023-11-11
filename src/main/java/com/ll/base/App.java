@@ -33,6 +33,7 @@ public class App {
                 case  "종료": controller.actionSave();
                     return;
                 default:
+                    System.out.println("명령어를 다시 입력 해주세요.");
                     break;
             }
         }

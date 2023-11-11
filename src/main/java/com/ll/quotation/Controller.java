@@ -48,37 +48,36 @@ public class Controller {
             }
         }
     }
-    private int searchMap(int key){
-        int result= map.containsKey(key)?key:-1;
-        return result;
-    }
+
     private void noneSet(int key){
-        System.out.printf("해당 %d 번의 명언은 존재하지 않습니다.\n",key);
+        if (key==0) {
+            System.out.println("id를 입력 해주세요.");
+        }else {
+            System.out.printf("해당 %d 번의 명언은 존재하지 않습니다.\n",key);
+        }
     }
 
     public void actionRemove(DistinguishOfStr ds){
-        int removeId= searchMap(ds.idNum());
-        if (removeId==-1){
-            noneSet(removeId);
+        if (!map.containsKey(ds.idNum())){
+            noneSet(ds.idNum());
             return;
         }
-        map.remove(removeId);
+        map.remove(ds.idNum());
         System.out.printf("%d번의 명언을 삭제 했습니다.\n",ds.idNum());
         count=map.size()==0?1:count;
     }
 
     public void actionModify(DistinguishOfStr ds){
-        int modtifyId= searchMap((ds.idNum()));
-        if (modtifyId==-1){
-           noneSet(modtifyId);
+        if (!map.containsKey(ds.idNum())){
+            noneSet(ds.idNum());
             return;
         }
         System.out.println("명언(기존) : "+map.get(ds.idNum()).saying);
         System.out.print("명언 : ");
-        map.get(modtifyId).saying=sc.nextLine();
+        map.get(ds.idNum()).saying=sc.nextLine();
         System.out.println("작가(기존) : "+map.get(ds.idNum()).author);
         System.out.print("작가 : ");
-        map.get(modtifyId).author=sc.nextLine();
+        map.get(ds.idNum()).author=sc.nextLine();
     }
 
     public void actionSave(){
